@@ -23,7 +23,7 @@
         const { useState, useEffect } = React;
 
         /**
-         * 키워드 데이터베이스
+         * 키워드 데이터베이스 (각 100개)
          */
         const KEYWORD_DATABASE = {
             adjectives: [
@@ -98,11 +98,27 @@
             ],
             anomalies: [
                 "달이 눈뜰 때", "색이 소리낼 때", "중력이 사라질 때", "그림자가 분리될 때", "단어가 살을 얻을 때", "시간이 역행할 때", "문자가 꿈틀댈 때", "별이 정렬할 때", "소리가 형태가 될 때", "공백이 읽힐 때",
-                "심장이 반대로 뛸 때", "거울이 진실을 말할 때", "그림자가 주인보다 길어질 때", "모든 빛이 검게 변할 때", "죽은 자가 노래할 때", "기계가 피를 흘릴 때", "하늘에 눈이 생길 때", "바다가 하늘로 솟을 때", "지도가 스스로 변할 때", "이름이 잊혀질 때"
+                "심장이 반대로 뛸 때", "거울이 진실을 말할 때", "그림자가 주인보다 길어질 때", "모든 빛이 검게 변할 때", "죽은 자가 노래할 때", "기계가 피를 흘릴 때", "하늘에 눈이 생길 때", "바다가 하늘로 솟을 때", "지도가 스스로 변할 때", "이름이 잊혀질 때",
+                "비명이 음악이 될 때", "뼈가 유리가 될 때", "피부가 종이처럼 찢길 때", "숨결이 안개가 될 때", "눈물이 불꽃이 될 때", "기억이 먼지가 될 때", "공포가 실체가 될 때", "꿈이 현실을 잡아먹을 때", "이성이 증발할 때", "본능이 폭주할 때",
+                "신이 죽음을 선언할 때", "우주가 미소 지을 때", "지옥이 문을 열 때", "천국이 불타버릴 때", "영혼이 조각날 때", "육체가 녹아내릴 때", "시간이 멈춰버릴 때", "공간이 겹쳐질 때", "차원이 찢어질 때", "인과가 역전될 때",
+                "말이 기생충이 될 때", "생각이 전염될 때", "의지가 박탈될 때", "감정이 거세될 때", "인격이 뒤섞일 때", "영혼이 매매될 때", "죽음이 거부될 때", "생명이 기계화될 때", "진실이 파괴될 때", "거짓이 실재가 될 때",
+                "안개가 지성을 가질 때", "비가 산이 될 때", "바람이 속삭일 때", "눈이 피부를 뚫을 때", "번개가 조각날 때", "지진이 파동이 될 때", "불이 차가워질 때", "얼음이 타오를 때", "흙이 살점이 될 때", "돌이 숨을 쉴 때",
+                "그림자가 실체가 될 때", "빛이 무게를 가질 때", "어둠이 만져질 때", "침묵이 귀를 찢을 때", "소음이 형태를 만들 때", "향기가 맛이 될 때", "촉각이 색이 될 때", "시각이 통증이 될 때", "미각이 환각이 될 때", "후각이 기억을 지울 때",
+                "종말이 축제가 될 때", "재앙이 일상이 될 때", "고통이 쾌락이 될 때", "슬픔이 구원이 될 때", "분노가 힘이 될 때", "증오가 사랑이 될 때", "공포가 신앙이 될 때", "절망이 희망이 될 때", "광기가 지혜가 될 때", "어리석음이 진리가 될 때",
+                "나 자신이 타인이 될 때", "세계가 연극이 될 때", "현실이 꿈이 될 때", "기록이 현실을 바꿀 때", "역사가 지워질 때", "미래가 과거를 먹을 때", "현재가 영원해질 때", "순간이 무한해질 때", "전체가 부분이 될 때", "하나가 전부가 될 때",
+                "빛의 속도가 변할 때", "물질의 상태가 바뀔 때", "원자가 분해될 때", "분자가 춤을 쉴 때", "세포가 지성을 가질 때", "신경이 악기가 될 때", "혈관이 회로가 될 때", "장기가 기계가 될 때", "피부가 지도가 될 때", "뼈가 탑이 될 때"
             ],
             consequences: [
                 "자아 붕괴", "물리법칙 반전", "과거의 소멸", "신체의 증식", "현실의 가상화", "기억의 환전", "감각의 전이", "공간의 압축", "타자의 빙의", "인과의 단절",
-                "영혼의 침식", "존재의 망각", "의식의 공유", "시간의 파편화", "죽음의 거부", "공포의 구체화", "신성 모독", "영원한 회귀", "지식의 저주", "생명의 기계화"
+                "영혼의 침식", "존재의 망각", "의식의 공유", "시간의 파편화", "죽음의 거부", "공포의 구체화", "신성 모독", "영원한 회귀", "지식의 저주", "생명의 기계화",
+                "피부의 경질화", "시각의 상실", "청각의 시각화", "내장의 이탈", "뼈의 재배치", "유전자 변이", "타차원 전송", "그림자 잠식", "언어의 무력화", "이성의 증발",
+                "공포의 만성화", "광기의 전염", "자비 없는 이해", "신의 부재 증명", "우주의 무관심", "끝없는 소음", "어둠의 가시화", "피의 결정화", "존재의 희박화", "차원의 융합",
+                "인격의 교체", "악몽의 현실화", "태고의 각성", "고통의 무감각", "거짓된 성찰", "기괴한 진화", "절대적 고독", "기억의 조작", "시간의 정지", "운명의 조소",
+                "영적 기생", "영혼의 세공", "환각의 고착", "심장의 정지", "의지의 박탈", "감정의 거세", "인식의 왜곡", "실체의 붕괴", "허무의 확장", "심연의 응시",
+                "저주받은 통찰", "금지된 각성", "멸망의 예견", "거짓된 평화", "고립된 인격", "변형된 신념", "상실의 반복", "배신의 가속", "비극의 필연", "죽음보다 못한 삶",
+                "영원한 허기", "갈증의 고통", "살점의 갈망", "피의 축제", "죽음의 향연", "고통의 정원", "고독의 찬가", "침묵의 비명", "어둠의 속삭임", "공허의 손길",
+                "뒤틀린 안식", "부서진 영원", "비틀린 공간", "파괴된 시간", "오염된 지혜", "부정한 유산", "기괴한 축복", "절망의 심연", "최후의 만찬", "종말의 서막",
+                "무한한 고통", "기괴한 안식", "창백한 평온", "공허한 승리", "무의미한 희생", "가려진 진실", "노출된 치부", "영혼의 조각", "존재의 종말", "우주의 미소"
             ]
         };
 
@@ -127,7 +143,7 @@
 
             const copyToClipboard = () => {
                 if (!result) return;
-                const text = `인물: ${result.persona.adj} ${result.persona.id}\n사건: ${result.event.obj}을(를) ${result.event.action}\n배경: ${result.setting.atmos} ${result.setting.place}\n현상: ${result.anomaly}\n결과: ${result.consequence}`;
+                const text = `등장 인물: ${result.persona.adj} ${result.persona.id}\n사건 및 동기: ${result.event.obj}을(를) ${result.event.action}\n배경 및 장소: ${result.setting.atmos} ${result.setting.place}\n변칙 현상: ${result.anomaly}\n파멸의 대가: ${result.consequence}`;
                 const el = document.createElement('textarea');
                 el.value = text;
                 document.body.appendChild(el);
@@ -140,21 +156,21 @@
 
             return (
                 <div className="max-w-2xl mx-auto px-4 py-12">
-                    <header className="text-center mb-12">
+                    <header className="text-center mb-12 border-b border-neutral-900 pb-8">
                         <h1 className="text-4xl md:text-5xl font-black mb-4 glow-purple tracking-tighter uppercase text-white">Cosmic Abyss Matrix</h1>
-                        <p className="text-neutral-500 mono text-xs tracking-widest uppercase">System version 1.0.3 / Random Generator</p>
+                        <p className="text-neutral-500 mono text-xs tracking-widest uppercase">System version 1.1.0 / Comprehensive Data Expanded</p>
                     </header>
 
                     <nav className="flex justify-center mb-10 gap-2">
                         <button 
                             onClick={() => setView('generator')}
-                            className={`px-6 py-2 rounded-md font-bold text-sm transition-all ${view === 'generator' ? 'bg-purple-700 text-white shadow-lg' : 'bg-neutral-900 text-neutral-500 border border-neutral-800 hover:border-neutral-600'}`}
+                            className={`px-8 py-2.5 rounded-lg font-bold text-sm transition-all ${view === 'generator' ? 'bg-purple-800 text-white shadow-lg ring-1 ring-purple-400' : 'bg-neutral-900 text-neutral-500 border border-neutral-800 hover:border-neutral-600'}`}
                         >
                             생성기
                         </button>
                         <button 
                             onClick={() => setView('matrix')}
-                            className={`px-6 py-2 rounded-md font-bold text-sm transition-all ${view === 'matrix' ? 'bg-purple-700 text-white shadow-lg' : 'bg-neutral-900 text-neutral-500 border border-neutral-800 hover:border-neutral-600'}`}
+                            className={`px-8 py-2.5 rounded-lg font-bold text-sm transition-all ${view === 'matrix' ? 'bg-purple-800 text-white shadow-lg ring-1 ring-purple-400' : 'bg-neutral-900 text-neutral-500 border border-neutral-800 hover:border-neutral-600'}`}
                         >
                             데이터 테이블
                         </button>
@@ -162,10 +178,10 @@
 
                     {view === 'generator' ? (
                         <div className="space-y-6">
-                            <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-8 card-shadow relative overflow-hidden">
-                                <div className="absolute top-0 left-0 w-1 h-full bg-purple-600"></div>
+                            <div className="bg-neutral-900 border border-neutral-800 rounded-2xl p-10 card-shadow relative overflow-hidden">
+                                <div className="absolute top-0 left-0 w-1 h-full bg-purple-700"></div>
                                 {result && (
-                                    <div className="grid grid-cols-1 gap-10">
+                                    <div className="grid grid-cols-1 gap-12">
                                         <Section label="등장 인물" value={`${result.persona.adj} ${result.persona.id}`} />
                                         <Section label="사건 및 동기" value={`${result.event.obj}을(를) ${result.event.action}`} />
                                         <Section label="배경 및 장소" value={`${result.setting.atmos} ${result.setting.place}`} />
@@ -178,30 +194,38 @@
                             <div className="flex gap-4">
                                 <button 
                                     onClick={generate}
-                                    className="flex-1 bg-white text-black font-black py-4 rounded-xl hover:bg-neutral-200 transition-colors uppercase tracking-tight"
+                                    className="flex-1 bg-white text-black font-black py-4 rounded-xl hover:bg-neutral-200 transition-colors uppercase tracking-tight shadow-xl shadow-purple-900/10"
                                 >
                                     주사위 굴리기
                                 </button>
                                 <button 
                                     onClick={copyToClipboard}
-                                    className="px-8 bg-neutral-800 text-white font-bold py-4 rounded-xl hover:bg-neutral-700 border border-neutral-700 transition-colors uppercase"
+                                    className="px-10 bg-neutral-900 text-white font-bold py-4 rounded-xl hover:bg-neutral-800 border border-neutral-800 transition-colors uppercase"
                                 >
                                     복사하기
                                 </button>
                             </div>
                         </div>
                     ) : (
-                        <div className="space-y-12 pb-20">
+                        <div className="space-y-16 pb-24">
                             {Object.entries(KEYWORD_DATABASE).map(([key, list]) => (
                                 <div key={key}>
-                                    <h3 className="text-white font-bold mb-4 uppercase text-sm border-b border-neutral-800 pb-2 flex justify-between">
-                                        <span>{key === 'adjectives' ? '수식어' : key === 'identities' ? '신분' : key === 'actions' ? '행위' : key === 'objects' ? '대상' : key === 'atmospheres' ? '분위기' : key === 'places' ? '장소' : key === 'anomalies' ? '현상' : '결과'}</span>
-                                        <span className="text-neutral-600 mono">{list.length}</span>
+                                    <h3 className="text-white font-black mb-6 uppercase text-xs tracking-widest border-l-4 border-purple-800 pl-3 flex justify-between items-center">
+                                        <span>{
+                                            key === 'adjectives' ? '수식어' : 
+                                            key === 'identities' ? '신분' : 
+                                            key === 'actions' ? '행위' : 
+                                            key === 'objects' ? '대상' : 
+                                            key === 'atmospheres' ? '분위기' : 
+                                            key === 'places' ? '장소' : 
+                                            key === 'anomalies' ? '변칙 현상' : '파멸의 대가'
+                                        }</span>
+                                        <span className="text-neutral-700 mono text-[10px] bg-neutral-900 px-2 py-0.5 rounded">{list.length} Items</span>
                                     </h3>
-                                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1">
+                                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
                                         {list.map((item, idx) => (
-                                            <div key={idx} className="bg-neutral-900/50 p-2 rounded text-[11px] text-neutral-500 border border-neutral-900 hover:border-neutral-700 hover:text-white transition-all">
-                                                <span className="mono mr-2 text-neutral-700">{(idx + 1).toString().padStart(2, '0')}</span>
+                                            <div key={idx} className="bg-neutral-900/40 p-2.5 rounded-lg text-[11px] text-neutral-500 border border-neutral-800/50 hover:border-purple-900 hover:text-white transition-all group">
+                                                <span className="mono mr-2 text-neutral-700 group-hover:text-purple-600 transition-colors">{(idx + 1).toString().padStart(2, '0')}</span>
                                                 {item}
                                             </div>
                                         ))}
@@ -211,17 +235,17 @@
                         </div>
                     )}
 
-                    <footer className="mt-20 text-center opacity-20 mono text-[10px] uppercase tracking-widest">
-                        Data storage: In-Memory / No persistence required
+                    <footer className="mt-20 text-center opacity-30 mono text-[9px] uppercase tracking-[0.5em] pb-10">
+                        In-Memory Database Matrix v1.1 / No Persistence Required
                     </footer>
                 </div>
             );
         };
 
         const Section = ({ label, value }) => (
-            <div className="group">
-                <span className="text-[10px] uppercase font-black tracking-widest text-neutral-600 block mb-1 group-hover:text-purple-500 transition-colors">{label}</span>
-                <p className="text-xl md:text-2xl font-bold text-white">
+            <div className="group border-l border-neutral-800 pl-6 py-1 hover:border-purple-600 transition-colors duration-300">
+                <span className="text-[10px] uppercase font-black tracking-[0.2em] text-neutral-600 block mb-2 group-hover:text-purple-500 transition-colors">{label}</span>
+                <p className="text-xl md:text-2xl font-black text-neutral-100 group-hover:text-white transition-colors">
                     {value}
                 </p>
             </div>
